@@ -34,13 +34,11 @@ public class ClearWater {
         } else if(Configs.enableLava && event.getState().getMaterial() == Material.LAVA) {
             GlStateManager.setFog(GlStateManager.FogMode.EXP);
             event.setDensity((float)Configs.fogDensityLava);
-            //event.setDensity(2.0f);
             event.setCanceled(true);
         }
         System.out.println(event.getDensity());
     }
-
-    @SideOnly(Side.CLIENT)
+    
     @SubscribeEvent
     public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event) {
         if(event.getModID().equals("clearwater")) {
