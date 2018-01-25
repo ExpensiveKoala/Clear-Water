@@ -1,0 +1,16 @@
+[
+{
+  "modid": "clarityreborn",
+  "name": "Clarity Reborn",
+  "description": "See clearly under water!",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["ExpensiveKoala"],
+  "credits": "Elucent for the original mod/idea.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
