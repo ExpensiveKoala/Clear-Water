@@ -16,7 +16,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 /**
  * @author ExpensiveKoala
  */
-@Mod(modid = "clearwater", version = "1.0", name = "Clear Water")
+@Mod(modid = "clearwater", version = "1.1", name = "Clear Water")
 public class ClearWater {
 
     @Mod.EventHandler
