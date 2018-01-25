@@ -1,4 +1,4 @@
-package koala.clarityreborn;
+package koala.clearwater;
 
 import net.minecraft.block.material.Material;
 import net.minecraftforge.client.event.EntityViewRenderEvent;
@@ -12,8 +12,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 /**
  * @author ExpensiveKoala
  */
-@Mod(modid = "clarityreborn", version = "1.0")
-public class ClarityReborn {
+@Mod(modid = "clearwater", version = "1.0", name = "Clear Water")
+public class ClearWater {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {

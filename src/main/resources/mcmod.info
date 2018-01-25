@@ -1,7 +1,7 @@
 [
 {
-  "modid": "clarityreborn",
-  "name": "Clarity Reborn",
+  "modid": "clearwater",
+  "name": "Clear Water",
   "description": "See clearly under water!",
   "version": "${version}",
   "mcversion": "${mcversion}",
