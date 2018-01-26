@@ -36,7 +36,6 @@ public class ClearWater {
             event.setDensity((float)Configs.fogDensityLava);
             event.setCanceled(true);
         }
-        System.out.println(event.getDensity());
     }
     
     @SubscribeEvent
