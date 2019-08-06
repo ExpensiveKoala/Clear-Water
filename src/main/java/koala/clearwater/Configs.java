@@ -34,7 +34,7 @@ public class Configs {
 			  .define("enableWater", true);
 			
 			fogDensityWater = builder
-			  .comment("Value for fog density (0-5) Vanilla is 0.1")
+			  .comment("Value for fog density (0-5) Vanilla is 0.5 - water brightness")
 			  .translation("")
 			  .defineInRange("fogDensityWater", 0.0025, 0, 5);
 			
