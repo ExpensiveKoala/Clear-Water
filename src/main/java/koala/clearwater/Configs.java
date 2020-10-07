@@ -9,11 +9,6 @@ import org.apache.commons.lang3.tuple.Pair;
 
 public class Configs {
 	
-	public static boolean enableWater;
-	public static double fogDensityWater;
-	public static boolean enableLava;
-	public static double fogDensityLava;
-	
 	public static class Client {
 		
 		public final ForgeConfigSpec.BooleanValue enableWater;

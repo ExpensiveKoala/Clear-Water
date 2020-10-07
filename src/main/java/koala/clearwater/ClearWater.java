@@ -1,6 +1,7 @@
 package koala.clearwater;
 
 import com.mojang.blaze3d.platform.GlStateManager;
+import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.tags.FluidTags;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -27,24 +28,13 @@ public class ClearWater {
 	@SubscribeEvent
 	public void onRenderFog(EntityViewRenderEvent.FogDensity event) {
 		if (Configs.CLIENT.enableWater.get() && event.getInfo().getFluidState().isTagged(FluidTags.WATER)) {
-			GlStateManager.fogMode(GlStateManager.FogMode.EXP);
+			RenderSystem.fogMode(GlStateManager.FogMode.EXP);
 			event.setDensity(Configs.CLIENT.fogDensityWater.get().floatValue());
 			event.setCanceled(true);
 		} else if (Configs.CLIENT.enableLava.get() && event.getInfo().getFluidState().isTagged(FluidTags.LAVA)) {
-			GlStateManager.fogMode(GlStateManager.FogMode.EXP);
+			RenderSystem.fogMode(GlStateManager.FogMode.EXP);
 			event.setDensity(Configs.CLIENT.fogDensityLava.get().floatValue());
 			event.setCanceled(true);
-		}
-	}
-	
-	@SubscribeEvent
-	public void onConfigChanged(ModConfig.ModConfigEvent event) {
-		final ModConfig config = event.getConfig();
-		if (config.getSpec() == Configs.clientSpec) {
-			Configs.enableWater = Configs.CLIENT.enableWater.get();
-			Configs.fogDensityWater = Configs.CLIENT.fogDensityWater.get();
-			Configs.enableLava = Configs.CLIENT.enableLava.get();
-			Configs.fogDensityLava = Configs.CLIENT.fogDensityLava.get();
 		}
 	}
 }
