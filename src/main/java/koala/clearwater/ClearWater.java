@@ -3,6 +3,7 @@ package koala.clearwater;
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.world.level.material.FogType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.EntityViewRenderEvent;
@@ -27,12 +28,12 @@ public class ClearWater {
 	@OnlyIn(Dist.CLIENT)
 	@SubscribeEvent
 	public void onRenderFog(EntityViewRenderEvent.FogDensity event) {
-		if (Configs.CLIENT.enableWater.get() && event.getInfo().getFluidState().isTagged(FluidTags.WATER)) {
-			RenderSystem.fogMode(GlStateManager.FogMode.EXP);
+		if (Configs.CLIENT.enableWater.get() && event.getInfo().getFluidInCamera() == FogType.WATER) {
+			//RenderSystem.fogMode(GlStateManager.FogMode.EXP);
 			event.setDensity(Configs.CLIENT.fogDensityWater.get().floatValue());
 			event.setCanceled(true);
-		} else if (Configs.CLIENT.enableLava.get() && event.getInfo().getFluidState().isTagged(FluidTags.LAVA)) {
-			RenderSystem.fogMode(GlStateManager.FogMode.EXP);
+		} else if (Configs.CLIENT.enableLava.get() && event.getInfo().getFluidInCamera() == FogType.LAVA) {
+			//RenderSystem.fogMode(GlStateManager.FogMode.EXP);
 			event.setDensity(Configs.CLIENT.fogDensityLava.get().floatValue());
 			event.setCanceled(true);
 		}

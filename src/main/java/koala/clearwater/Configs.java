@@ -29,9 +29,9 @@ public class Configs {
 			  .define("enableWater", true);
 			
 			fogDensityWater = builder
-			  .comment("Value for fog density (0-5) Vanilla is 0.5 - water brightness")
+			  .comment("Value for fog density (0-500) Vanilla is 48.0 - water brightness")
 			  .translation("")
-			  .defineInRange("fogDensityWater", 0.0025, 0, 5);
+			  .defineInRange("fogDensityWater", 150.0, 0, 500);
 			
 			enableLava = builder
 			  .comment("Enables modifications of fog under lava")
@@ -39,9 +39,9 @@ public class Configs {
 			  .define("enableLava", true);
 			
 			fogDensityLava = builder
-			  .comment("Value for fog density (0-5) Vanilla is 2.0")
+			  .comment("Value for fog density (0-500) Vanilla is 1.0")
 			  .translation("")
-			  .defineInRange("fogDensityLava", 0.5, 0, 5);
+			  .defineInRange("fogDensityLava", 25.0, 0, 500);
 			
 			builder.pop();
 		}
