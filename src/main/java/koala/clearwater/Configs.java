@@ -15,6 +15,8 @@ public class Configs {
 		
 		public final ForgeConfigSpec.DoubleValue fogDensityWater;
 		
+		public final ForgeConfigSpec.BooleanValue fadeInWater;
+		
 		public final ForgeConfigSpec.BooleanValue enableLava;
 		
 		public final ForgeConfigSpec.DoubleValue fogDensityLava;
@@ -32,6 +34,11 @@ public class Configs {
 			  .comment("Value for fog density (0-500) Vanilla is 48.0 - water brightness")
 			  .translation("")
 			  .defineInRange("fogDensityWater", 150.0, 0, 500);
+			
+			fadeInWater = builder
+			  .comment("When enabled, makes vision fade in like vanilla behavior")
+			  .translation("")
+			  .define("fadeInWater", false);
 			
 			enableLava = builder
 			  .comment("Enables modifications of fog under lava")

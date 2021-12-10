@@ -1,6 +1,6 @@
 
 modLoader="javafml" #mandatory
-loaderVersion="[34,)" #mandatory (26 is current forge version)
+loaderVersion="[38,)" #mandatory (26 is current forge version)
 license="MIT"
 [[mods]] #mandatory
     modId="clearwater" #mandatory
@@ -15,12 +15,12 @@ license="MIT"
 [[dependencies.clearwater]] #optional
     modId="forge" #mandatory
     mandatory=true #mandatory
-    versionRange="[34,)" #mandatory
+    versionRange="[38,)" #mandatory
     ordering="NONE"
     side="BOTH"
 [[dependencies.clearmod]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.17,)"
+    versionRange="[1.18,)"
     ordering="NONE"
     side="BOTH"
