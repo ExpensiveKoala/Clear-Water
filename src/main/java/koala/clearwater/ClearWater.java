@@ -26,20 +26,23 @@ public class ClearWater {
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, Configs.clientSpec);
 	}
 	
-	@OnlyIn(Dist.CLIENT)
 	@SubscribeEvent
-	public void onRenderFog(EntityViewRenderEvent.FogDensity event) {
+	public void onRenderFog(EntityViewRenderEvent.RenderFogEvent event) {
 		if (Configs.CLIENT.enableWater.get() && event.getCamera().getFluidInCamera() == FogType.WATER) {
-			//RenderSystem.fogMode(GlStateManager.FogMode.EXP);
 			float waterVision = 1.0f;
-			if(event.getCamera().getEntity() instanceof LocalPlayer && Configs.CLIENT.fadeInWater.get()) {
+			if(Configs.CLIENT.fadeInWater.get() && event.getCamera().getEntity() instanceof LocalPlayer) {
 				waterVision = Math.max(0.25f, ((LocalPlayer)event.getCamera().getEntity()).getWaterVision());
 			}
-			event.setDensity(waterVision * Configs.CLIENT.fogDensityWater.get().floatValue());
+			event.setNearPlaneDistance(Configs.CLIENT.fogNearPlaneWater.get().floatValue());
+			event.setFarPlaneDistance(Configs.CLIENT.fogFarPlaneWater.get().floatValue() * waterVision);
 			event.setCanceled(true);
 		} else if (Configs.CLIENT.enableLava.get() && event.getCamera().getFluidInCamera() == FogType.LAVA) {
-			//RenderSystem.fogMode(GlStateManager.FogMode.EXP);
-			event.setDensity(Configs.CLIENT.fogDensityLava.get().floatValue());
+			event.setNearPlaneDistance(Configs.CLIENT.fogNearPlaneLava.get().floatValue());
+			event.setFarPlaneDistance(Configs.CLIENT.fogFarPlaneLava.get().floatValue());
+			event.setCanceled(true);
+		} else if (Configs.CLIENT.enablePowderedSnow.get() && event.getCamera().getFluidInCamera() == FogType.POWDER_SNOW) {
+			event.setNearPlaneDistance(Configs.CLIENT.fogNearPlaneSnow.get().floatValue());
+			event.setFarPlaneDistance(Configs.CLIENT.fogFarPlaneSnow.get().floatValue());
 			event.setCanceled(true);
 		}
 	}
