@@ -35,14 +35,17 @@ public class ClearWater {
 			}
 			event.setNearPlaneDistance(Configs.CLIENT.fogNearPlaneWater.get().floatValue());
 			event.setFarPlaneDistance(Configs.CLIENT.fogFarPlaneWater.get().floatValue() * waterVision);
+			event.setFogShape(Configs.CLIENT.fogShapeWater.get());
 			event.setCanceled(true);
 		} else if (Configs.CLIENT.enableLava.get() && event.getCamera().getFluidInCamera() == FogType.LAVA) {
 			event.setNearPlaneDistance(Configs.CLIENT.fogNearPlaneLava.get().floatValue());
 			event.setFarPlaneDistance(Configs.CLIENT.fogFarPlaneLava.get().floatValue());
+			event.setFogShape(Configs.CLIENT.fogShapeLava.get());
 			event.setCanceled(true);
 		} else if (Configs.CLIENT.enablePowderedSnow.get() && event.getCamera().getFluidInCamera() == FogType.POWDER_SNOW) {
 			event.setNearPlaneDistance(Configs.CLIENT.fogNearPlaneSnow.get().floatValue());
 			event.setFarPlaneDistance(Configs.CLIENT.fogFarPlaneSnow.get().floatValue());
+			event.setFogShape(Configs.CLIENT.fogShapeSnow.get());
 			event.setCanceled(true);
 		}
 	}
