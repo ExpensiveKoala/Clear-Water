@@ -16,24 +16,38 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class FogRendererMixin {
     @Inject(method = "setupFog", at = @At("HEAD"), cancellable = true)
     private static void clearwater_setupFog(Camera camera, FogRenderer.FogMode fogMode, float farPlaneDistance, boolean bl, float f, CallbackInfo ci) {
-        if (ClearWater.CONFIG.enableWater && camera.getFluidInCamera() == FogType.WATER) {
-            float waterVision = 1.0f;
-            if(camera.getEntity() instanceof LocalPlayer) {
-                waterVision = Math.max(0.25f, ((LocalPlayer)camera.getEntity()).getWaterVision());
+        boolean cancel = switch (camera.getFluidInCamera()) {
+            case WATER -> {
+                if (ClearWater.CONFIG.enableWater) {
+                    float waterVision = camera.getEntity() instanceof LocalPlayer player ? Math.max(0.25f, player.getWaterVision()) : 1.0f;
+                    RenderSystem.setShaderFogStart(ClearWater.CONFIG.fogNearPlaneWater);
+                    RenderSystem.setShaderFogEnd(ClearWater.CONFIG.fogFarPlaneWater * waterVision);
+                    RenderSystem.setShaderFogShape(ClearWater.CONFIG.fogShapeWater);
+                    yield true;
+                }
+                yield false;
             }
-            RenderSystem.setShaderFogStart(ClearWater.CONFIG.fogNearPlaneWater);
-            RenderSystem.setShaderFogEnd(ClearWater.CONFIG.fogFarPlaneWater * waterVision);
-            RenderSystem.setShaderFogShape(ClearWater.CONFIG.fogShapeWater);
-            ci.cancel();
-        } else if (ClearWater.CONFIG.enableLava && camera.getFluidInCamera() == FogType.LAVA) {
-            RenderSystem.setShaderFogStart(ClearWater.CONFIG.fogNearPlaneLava);
-            RenderSystem.setShaderFogEnd(ClearWater.CONFIG.fogFarPlaneLava);
-            RenderSystem.setShaderFogShape(ClearWater.CONFIG.fogShapeLava);
-            ci.cancel();
-        } else if (ClearWater.CONFIG.enablePowderedSnow && camera.getFluidInCamera() == FogType.POWDER_SNOW) {
-            RenderSystem.setShaderFogStart(ClearWater.CONFIG.fogNearPlaneSnow);
-            RenderSystem.setShaderFogEnd(ClearWater.CONFIG.fogFarPlaneSnow);
-            RenderSystem.setShaderFogShape(ClearWater.CONFIG.fogShapeSnow);
+            case LAVA -> {
+                if (ClearWater.CONFIG.enableLava) {
+                    RenderSystem.setShaderFogStart(ClearWater.CONFIG.fogNearPlaneLava);
+                    RenderSystem.setShaderFogEnd(ClearWater.CONFIG.fogFarPlaneLava);
+                    RenderSystem.setShaderFogShape(ClearWater.CONFIG.fogShapeLava);
+                    yield true;
+                }
+                yield false;
+            }
+            case POWDER_SNOW -> {
+                if (ClearWater.CONFIG.enablePowderedSnow) {
+                    RenderSystem.setShaderFogStart(ClearWater.CONFIG.fogNearPlaneSnow);
+                    RenderSystem.setShaderFogEnd(ClearWater.CONFIG.fogFarPlaneSnow);
+                    RenderSystem.setShaderFogShape(ClearWater.CONFIG.fogShapeSnow);
+                    yield true;
+                }
+                yield false;
+            }
+            case NONE -> false;
+        };
+        if (cancel) {
             ci.cancel();
         }
     }
