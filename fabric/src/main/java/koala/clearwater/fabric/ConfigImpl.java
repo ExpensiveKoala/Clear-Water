@@ -1,18 +1,18 @@
 package koala.clearwater.fabric;
 
+import com.google.gson.GsonBuilder;
 import com.mojang.blaze3d.shaders.FogShape;
-import com.terraformersmc.modmenu.api.ConfigScreenFactory;
-import com.terraformersmc.modmenu.api.ModMenuApi;
 import dev.isxander.yacl.api.ButtonOption;
 import dev.isxander.yacl.api.ConfigCategory;
 import dev.isxander.yacl.api.Option;
 import dev.isxander.yacl.api.YetAnotherConfigLib;
-import dev.isxander.yacl.config.ConfigInstance;
+import dev.isxander.yacl.config.GsonConfigInstance;
 import dev.isxander.yacl.gui.controllers.ActionController;
 import dev.isxander.yacl.gui.controllers.BooleanController;
 import dev.isxander.yacl.gui.controllers.cycling.EnumController;
 import dev.isxander.yacl.gui.controllers.slider.FloatSliderController;
 import koala.clearwater.ClearWater;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -21,10 +21,18 @@ import net.minecraft.network.chat.Component;
  * @author AlexNijjar
  */
 
-public class ConfigImpl implements ModMenuApi {
-    @Override
-    public ConfigScreenFactory<?> getModConfigScreenFactory() {
-        return parent -> ClearWaterClientFabric.getConfig().buildConfig((config, builder) -> builder
+public class ConfigImpl {
+    private static GsonConfigInstance<FabricConfig> config;
+
+    public static void init() {
+        config = new GsonConfigInstance<>(FabricConfig.class, FabricLoader.getInstance().getConfigDir().resolve(ClearWater.MOD_ID + "-client.json"), GsonBuilder::setPrettyPrinting);
+        config.load();
+        config.save();
+        ConfigImpl.updateConfig();
+    }
+
+    public static Screen getModConfigScreenFactory(Screen parent) {
+        return config.buildConfig((config, builder) -> builder
                         .title(Component.literal("Clear Water Config"))
                         .category(ConfigCategory.createBuilder()
                                 .name(Component.literal("Clear Water Config"))
@@ -36,12 +44,9 @@ public class ConfigImpl implements ModMenuApi {
                                 .build())
                 )
                 .generateScreen(parent);
-
-
     }
 
-    private Screen create(Screen parent) {
-        ConfigInstance<FabricConfig> config = ClearWaterClientFabric.getConfig();
+    private static Screen create(Screen parent) {
         return YetAnotherConfigLib.createBuilder()
                 .title(Component.literal("Client Settings"))
                 .category(ConfigCategory.createBuilder()
@@ -192,18 +197,18 @@ public class ConfigImpl implements ModMenuApi {
     }
 
     public static void updateConfig() {
-        ClearWater.CONFIG.enableWater = ClearWaterClientFabric.getConfig().getConfig().enableWater;
-        ClearWater.CONFIG.fogNearPlaneWater = ClearWaterClientFabric.getConfig().getConfig().fogNearPlaneWater;
-        ClearWater.CONFIG.fogFarPlaneWater = ClearWaterClientFabric.getConfig().getConfig().fogFarPlaneWater;
-        ClearWater.CONFIG.fadeInWater = ClearWaterClientFabric.getConfig().getConfig().fadeInWater;
-        ClearWater.CONFIG.fogShapeWater = ClearWaterClientFabric.getConfig().getConfig().fogShapeWater;
-        ClearWater.CONFIG.enableLava = ClearWaterClientFabric.getConfig().getConfig().enableLava;
-        ClearWater.CONFIG.fogNearPlaneLava = ClearWaterClientFabric.getConfig().getConfig().fogNearPlaneLava;
-        ClearWater.CONFIG.fogFarPlaneLava = ClearWaterClientFabric.getConfig().getConfig().fogFarPlaneLava;
-        ClearWater.CONFIG.fogShapeLava = ClearWaterClientFabric.getConfig().getConfig().fogShapeLava;
-        ClearWater.CONFIG.enablePowderedSnow = ClearWaterClientFabric.getConfig().getConfig().enablePowderedSnow;
-        ClearWater.CONFIG.fogNearPlaneSnow = ClearWaterClientFabric.getConfig().getConfig().fogNearPlaneSnow;
-        ClearWater.CONFIG.fogFarPlaneSnow = ClearWaterClientFabric.getConfig().getConfig().fogFarPlaneSnow;
-        ClearWater.CONFIG.fogShapeSnow = ClearWaterClientFabric.getConfig().getConfig().fogShapeSnow;
+        ClearWater.CONFIG.enableWater = config.getConfig().enableWater;
+        ClearWater.CONFIG.fogNearPlaneWater = config.getConfig().fogNearPlaneWater;
+        ClearWater.CONFIG.fogFarPlaneWater = config.getConfig().fogFarPlaneWater;
+        ClearWater.CONFIG.fadeInWater = config.getConfig().fadeInWater;
+        ClearWater.CONFIG.fogShapeWater = config.getConfig().fogShapeWater;
+        ClearWater.CONFIG.enableLava = config.getConfig().enableLava;
+        ClearWater.CONFIG.fogNearPlaneLava = config.getConfig().fogNearPlaneLava;
+        ClearWater.CONFIG.fogFarPlaneLava = config.getConfig().fogFarPlaneLava;
+        ClearWater.CONFIG.fogShapeLava = config.getConfig().fogShapeLava;
+        ClearWater.CONFIG.enablePowderedSnow = config.getConfig().enablePowderedSnow;
+        ClearWater.CONFIG.fogNearPlaneSnow = config.getConfig().fogNearPlaneSnow;
+        ClearWater.CONFIG.fogFarPlaneSnow = config.getConfig().fogFarPlaneSnow;
+        ClearWater.CONFIG.fogShapeSnow = config.getConfig().fogShapeSnow;
     }
 }

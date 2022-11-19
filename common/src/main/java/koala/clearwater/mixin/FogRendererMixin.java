@@ -2,11 +2,9 @@ package koala.clearwater.mixin;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import koala.clearwater.ClearWater;
-import koala.clearwater.Config;
 import net.minecraft.client.Camera;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.FogRenderer;
-import net.minecraft.world.level.material.FogType;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

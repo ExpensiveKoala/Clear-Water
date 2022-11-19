@@ -24,7 +24,7 @@
       "koala.clearwater.fabric.ClearWaterClientFabric"
     ],
     "modmenu": [
-      "koala.clearwater.fabric.ConfigImpl"
+      "koala.clearwater.fabric.ModMenuIntegration"
     ]
   },
   "mixins": [
