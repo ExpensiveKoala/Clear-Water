@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "clearwater",
+  "version": "${version}",
+  "name": "Clear Water",
+  "description": "See clearly under water!",
+  "authors": [
+    "ExpensiveKoala",
+    "AlexNijjar"
+  ],
+  "contact": {
+    "website": "https://www.curseforge.com/minecraft/mc-mods/clear-water",
+    "repo": "https://github.com/ExpensiveKoala/Clear-Water",
+    "issues": "https://github.com/ExpensiveKoala/Clear-Water/issues"
+  },
+  "license": "MIT",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "koala.clearwater.fabric.ClearWaterFabric"
+    ],
+    "client": [
+      "koala.clearwater.fabric.ClearWaterClientFabric"
+    ],
+    "modmenu": [
+      "koala.clearwater.fabric.ModMenuIntegration"
+    ]
+  },
+  "mixins": [
+    "clearwater-common.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.10",
+    "minecraft": ">=1.19.2"
+  }
+}

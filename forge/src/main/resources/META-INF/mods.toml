@@ -1,0 +1,29 @@
+modLoader = "javafml"
+loaderVersion = "[43,)"
+license = "MIT"
+issueTrackerURL = "https://github.com/ExpensiveKoala/Clear-Water/issues"
+[[mods]]
+modId = "clearwater"
+version = "${version}"
+displayName = "Clear Water"
+displayURL = "https://www.curseforge.com/minecraft/mc-mods/clear-water"
+logoFile = "icon.png"
+authors = "ExpensiveKoala, AlexNijjar"
+
+description = '''
+See clearly under water!
+'''
+
+[[dependencies.clearwater]]
+modId = "forge"
+mandatory = true
+versionRange = "[43,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.clearwater]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.19.2,1.20)"
+ordering = "NONE"
+side = "BOTH"
