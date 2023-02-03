@@ -20,7 +20,7 @@ dependencies {
     modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
 
     modApi("com.terraformersmc:modmenu:$rootProject.modmenu_version")
-    modImplementation "dev.isxander:yet-another-config-lib:$rootProject.yacl_version"
+    modImplementation("com.teamresourceful.resourcefulconfig:resourcefulconfig-fabric-${rootProject.minecraft_version}:${rootProject.resourceful_config_version}")
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }

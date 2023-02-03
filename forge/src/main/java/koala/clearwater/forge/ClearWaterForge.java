@@ -1,6 +1,11 @@
 package koala.clearwater.forge;
 
 import koala.clearwater.ClearWater;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.ForgeHooksClient;
+import net.minecraftforge.client.event.ViewportEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -10,8 +15,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 public class ClearWaterForge {
     public ClearWaterForge() {
         ClearWater.init();
-        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ConfigImpl.clientSpec);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(ConfigImpl::onLoad);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(ConfigImpl::onReload);
+        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> ClearWaterForgeClient::init);
     }
 }

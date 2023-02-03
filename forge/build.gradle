@@ -16,12 +16,14 @@ configurations {
 
 loom {
     forge {
-        mixinConfig "clearwater-common.mixins.json"
+
     }
 }
 
 dependencies {
     forge "net.minecraftforge:forge:${rootProject.forge_version}"
+
+    modImplementation("com.teamresourceful.resourcefulconfig:resourcefulconfig-forge-${rootProject.minecraft_version}:${rootProject.resourceful_config_version}")
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
