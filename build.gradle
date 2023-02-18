@@ -38,6 +38,7 @@ subprojects {
             gameVersions = [minecraft_version]
             loaders = [modLoader]
             changelog = changelogText
+            debugMode = true
             
             if (modLoader == "fabric") {
                 dependencies {
@@ -60,6 +61,7 @@ subprojects {
                 releaseType = "release"
                 addGameVersion minecraft_version
                 addGameVersion modLoader.capitalize()
+                debug = true
                 
                 mainArtifact(tasks.remapJar)
                 
