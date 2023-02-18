@@ -2,7 +2,7 @@ plugins {
     id "architectury-plugin" version "3.4-SNAPSHOT"
     id "dev.architectury.loom" version "1.0-SNAPSHOT" apply false
     
-    id "com.modrinth.minotaur" version "2.+"
+    id "com.modrinth.minotaur" version "2.7.1"
     id "io.github.CDAGaming.cursegradle" version "1.6.0"
 }
 
@@ -36,7 +36,7 @@ subprojects {
     if (env.MODRINTH_TOKEN) {
         modrinth {
             projectId = env.MODRINTH_PROJECT
-            file = tasks.remapJar
+            uploadFile = tasks.remapJar
             gameVersions = [minecraft_version]
             loaders = [modLoader]
             changelog = changelogText
