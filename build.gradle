@@ -3,7 +3,7 @@ plugins {
     id "dev.architectury.loom" version "1.0-SNAPSHOT" apply false
     
     id "com.modrinth.minotaur" version "2.6.+"
-    id "io.github.CDAGaming.cursegradle" version "1.6.0"
+    id "com.matthewprenger.cursegradle" version "1.4.0"
 }
 
 architectury {
@@ -64,9 +64,7 @@ subprojects {
                 addGameVersion minecraft_version
                 addGameVersion modLoader.capitalize()
                 debug = true
-                
                 mainArtifact(tasks.remapJar)
-                
                 if (modLoader == "fabric") {
                     relations {
                         requiredDependency "resourceful-config"
