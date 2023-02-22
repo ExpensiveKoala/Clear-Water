@@ -37,7 +37,7 @@ subprojects {
         modrinth {
             projectId = env.MODRINTH_PROJECT
             uploadFile = tasks.remapJar
-            gameVersions = [rootProject.minecraft_version.toString()]
+            gameVersions = [minecraft_version]
             loaders = [modLoader]
             changelog = changelogText
             debugMode = true
@@ -61,7 +61,7 @@ subprojects {
                 id = env.CURSE_PROJECT
                 changelog = changelogText
                 releaseType = "release"
-                addGameVersion rootProject.minecraft_version
+                addGameVersion minecraft_version
                 addGameVersion modLoader.capitalize()
                 debug = true
                 mainArtifact(tasks.remapJar)
