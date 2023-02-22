@@ -36,6 +36,7 @@ subprojects {
     if (env.MODRINTH_TOKEN) {
         modrinth {
             projectId = env.MODRINTH_PROJECT
+            token = env.MODRINTH_TOKEN
             uploadFile = tasks.remapJar
             gameVersions = [minecraft_version]
             loaders = [modLoader]
