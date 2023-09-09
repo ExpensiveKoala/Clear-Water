@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class FogRendererMixin {
     @Inject(method = "setupFog", at = @At("HEAD"), cancellable = true)
     private static void clearwater_setupFog(Camera camera, FogRenderer.FogMode fogMode, float farPlaneDistance, boolean bl, float f, CallbackInfo ci) {
-        if (ClearWater.handleFog(camera)) {
+        if (ClearWater.handleFog(camera, RenderSystem::setShaderFogStart, RenderSystem::setShaderFogEnd, RenderSystem::setShaderFogShape)) {
             ci.cancel();
         }
     }

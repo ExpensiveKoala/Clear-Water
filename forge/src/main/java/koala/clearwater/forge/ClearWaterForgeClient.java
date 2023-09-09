@@ -11,7 +11,7 @@ public class ClearWaterForgeClient {
     }
     
     public static void onRenderFog(ViewportEvent.RenderFog event) {
-        if (ClearWater.handleFog(event.getCamera())) {
+        if (ClearWater.handleFog(event.getCamera(), event::setNearPlaneDistance, event::setFarPlaneDistance, event::setFogShape)) {
             event.setCanceled(true);
         }
     }
