@@ -1,11 +1,11 @@
 package koala.clearwater.forge;
 
+import com.teamresourceful.resourcefulconfig.api.types.ResourcefulConfig;
 import com.teamresourceful.resourcefulconfig.client.ConfigScreen;
-import com.teamresourceful.resourcefulconfig.common.config.ResourcefulConfig;
 import koala.clearwater.ClearWater;
 import koala.clearwater.ClearWaterConfig;
-import net.minecraftforge.client.ConfigScreenHandler;
-import net.minecraftforge.fml.ModLoadingContext;
+import net.neoforged.neoforge.client.ConfigScreenHandler;
+import net.neoforged.fml.ModLoadingContext;
 
 public class ClearWaterForgeConfig {
     public static void register() {

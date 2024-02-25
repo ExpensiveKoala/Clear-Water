@@ -15,22 +15,22 @@ See clearly under water!
 '''
 
 [[dependencies.clearwater]]
-modId = "forge"
-mandatory = true
+modId = "neoforge"
+type = "required"
 versionRange = "[43,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.clearwater]]
 modId = "resourcefulconfig"
-mandatory = true
-versionRange = "[2.0.0,)"
+type = "required"
+versionRange = "[2.4.3,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.clearwater]]
 modId = "minecraft"
-mandatory = true
+type = "required"
 versionRange = "[1.20,)"
 ordering = "NONE"
 side = "BOTH"

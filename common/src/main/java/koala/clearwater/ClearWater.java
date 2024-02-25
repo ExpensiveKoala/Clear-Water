@@ -2,7 +2,8 @@ package koala.clearwater;
 
 import com.mojang.blaze3d.shaders.FogShape;
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.teamresourceful.resourcefulconfig.common.config.Configurator;
+import com.teamresourceful.resourcefulconfig.api.loader.Configurator;
+import com.teamresourceful.resourcefulconfig.common.config.Configurations;
 import net.minecraft.client.Camera;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.world.level.material.FogType;
@@ -12,11 +13,11 @@ import java.util.function.Consumer;
 
 public class ClearWater {
     public static final String MOD_ID = "clearwater";
-    public static final Configurator CONFIGURATOR = new Configurator();
+    public static final Configurator CONFIGURATOR = new Configurator(MOD_ID);
     
 
     public static void init() {
-        CONFIGURATOR.registerConfig(ClearWaterConfig.class);
+        CONFIGURATOR.register(ClearWaterConfig.class);
     }
     
     public static boolean handleFog(Camera camera, Consumer<Float> fogStartConsumer, Consumer<Float> fogEndConsumer, Consumer<FogShape> fogShapeConsumer) {

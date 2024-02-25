@@ -1,17 +1,18 @@
 package koala.clearwater;
 
-
-import com.teamresourceful.resourcefulconfig.common.annotations.Category;
-import com.teamresourceful.resourcefulconfig.common.annotations.Comment;
-import com.teamresourceful.resourcefulconfig.common.annotations.Config;
+import com.teamresourceful.resourcefulconfig.api.annotations.*;
 import com.mojang.blaze3d.shaders.FogShape;
-import com.teamresourceful.resourcefulconfig.common.annotations.ConfigEntry;
-import com.teamresourceful.resourcefulconfig.common.config.EntryType;
+import com.teamresourceful.resourcefulconfig.api.types.options.EntryType;
 
-@Config("clearwater")
+@Config(value = "clearwater",
+categories = {
+  ClearWaterConfig.WaterConfig.class,
+  ClearWaterConfig.LavaConfig.class,
+  ClearWaterConfig.PowderedSnowConfig.class
+})
 public final class ClearWaterConfig {
     
-    @Category(id = "waterConfig", translation = "text.resourcefulconfig.clearwater.category.water")
+    @Category(value = "text.resourcefulconfig.clearwater.category.water")
     public static final class WaterConfig {
         @ConfigEntry(
           id = "enableWater",
@@ -27,6 +28,7 @@ public final class ClearWaterConfig {
           translation = "text.resourcefulconfig.clearwater.option.fogNearPlaneWater"
         )
         @Comment(value = "Value for where fog starts. Vanilla is -8.0", translation = "text.resourcefulconfig.clearwater.option.fogNearPlaneWater.tooltip")
+        @ConfigOption.Slider()
         public static float fogNearPlaneWater = -8.0f;
         
         @ConfigEntry(
@@ -35,6 +37,7 @@ public final class ClearWaterConfig {
           translation = "text.resourcefulconfig.clearwater.option.fogFarPlaneWater"
         )
         @Comment(value = "Value for where fog ends. Vanilla is 96.0", translation = "text.resourcefulconfig.clearwater.option.fogFarPlaneWater.tooltip")
+        @ConfigOption.Slider()
         public static float fogFarPlaneWater = 250.0f;
     
         @ConfigEntry(
@@ -54,7 +57,7 @@ public final class ClearWaterConfig {
         public static FogShape fogShapeWater = FogShape.CYLINDER;
     }
     
-    @Category(id = "lavaConfig", translation = "text.resourcefulconfig.clearwater.category.lava")
+    @Category(value = "lavaConfig")
     public static final class LavaConfig {
         @ConfigEntry(
           id = "enableLava",
@@ -70,6 +73,7 @@ public final class ClearWaterConfig {
           translation = "text.resourcefulconfig.clearwater.option.fogNearPlaneLava"
         )
         @Comment(value = "Value for where fog starts. Vanilla is 0.25", translation = "text.resourcefulconfig.clearwater.option.fogNearPlaneLava.tooltip")
+        @ConfigOption.Slider()
         public static float fogNearPlaneLava = 0.0f;
     
         @ConfigEntry(
@@ -78,6 +82,7 @@ public final class ClearWaterConfig {
           translation = "text.resourcefulconfig.clearwater.option.fogFarPlaneLava"
         )
         @Comment(value = "Value for where fog ends. Vanilla is 1.0", translation = "text.resourcefulconfig.clearwater.option.fogFarPlaneLava.tooltip")
+        @ConfigOption.Slider()
         public static float fogFarPlaneLava = 10.0f;
     
         @ConfigEntry(
@@ -89,7 +94,7 @@ public final class ClearWaterConfig {
         public static FogShape fogShapeLava = FogShape.SPHERE;
     }
     
-    @Category(id = "powderedSnowConfig", translation = "text.resourcefulconfig.clearwater.category.powderedSnow")
+    @Category(value = "powderedSnowConfig")
     public static final class PowderedSnowConfig {
         @ConfigEntry(
           id = "enablePowderedSnow",
@@ -105,6 +110,7 @@ public final class ClearWaterConfig {
           translation = "text.resourcefulconfig.clearwater.option.fogNearPlaneSnow"
         )
         @Comment(value = "Value for where fog starts. Vanilla is 0.0", translation = "text.resourcefulconfig.clearwater.option.fogNearPlaneSnow.tooltip")
+        @ConfigOption.Slider()
         public static float fogNearPlaneSnow = 0.0f;
     
         @ConfigEntry(
@@ -113,6 +119,7 @@ public final class ClearWaterConfig {
           translation = "text.resourcefulconfig.clearwater.option.fogFarPlaneSnow"
         )
         @Comment(value = "Value for where fog ends. Vanilla is 2.0", translation = "text.resourcefulconfig.clearwater.option.fogFarPlaneSnow.tooltip")
+        @ConfigOption.Slider()
         public static float fogFarPlaneSnow = 6.0f;
     
         @ConfigEntry(

@@ -1,13 +1,13 @@
 package koala.clearwater.forge;
 
 import koala.clearwater.ClearWater;
-import net.minecraftforge.client.event.ViewportEvent;
-import net.minecraftforge.common.MinecraftForge;
+import net.neoforged.neoforge.client.event.ViewportEvent;
+import net.neoforged.neoforge.common.NeoForge;
 
 public class ClearWaterForgeClient {
     public static void init() {
         ClearWaterForgeConfig.register();
-        MinecraftForge.EVENT_BUS.addListener(ClearWaterForgeClient::onRenderFog);
+        NeoForge.EVENT_BUS.addListener(ClearWaterForgeClient::onRenderFog);
     }
     
     public static void onRenderFog(ViewportEvent.RenderFog event) {
