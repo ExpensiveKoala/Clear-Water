@@ -62,16 +62,17 @@ subprojects {
                 changelog = changelogText
                 releaseType = "release"
                 addGameVersion minecraft_version
-                addGameVersion modLoader.capitalize()
                 mainArtifact(tasks.remapJar)
                 if (modLoader == "fabric") {
                     relations {
                         requiredDependency "resourceful-config"
                     }
+                    addGameVersion modLoader.capitalize()
                 } else {
                     relations {
                         requiredDependency "resourceful-config"
                     }
+                    addGameVersion "NeoForge"
                 }
             }
         }
