@@ -23,7 +23,7 @@ loom {
 dependencies {
     neoForge "net.neoforged:neoforge:${rootProject.forge_version}"
 
-    modImplementation("com.teamresourceful.resourcefulconfig:resourcefulconfig-forge-${rootProject.minecraft_version}:${rootProject.resourceful_config_version}")
+    modImplementation("com.teamresourceful.resourcefulconfig:resourcefulconfig-neoforge-${rootProject.minecraft_version}:${rootProject.resourceful_config_version}")
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionNeoForge")) { transitive = false }

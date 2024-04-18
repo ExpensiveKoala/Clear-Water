@@ -1,4 +1,6 @@
 {
+  "text.resourcefulconfig.clearwater.config.title": "Clear Water",
+  "text.resourcefulconfig.clearwater.config.description": "Clear Water is a mod that allows you to fully control the fog settings of Water, Lava, and even Powdered Snow!",
   "text.resourcefulconfig.clearwater.category.water": "Water Settings",
   "text.resourcefulconfig.clearwater.category.lava": "Lava Settings",
   "text.resourcefulconfig.clearwater.category.powderedSnow": "Powdered Snow Settings",

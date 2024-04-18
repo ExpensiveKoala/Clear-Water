@@ -10,9 +10,13 @@ categories = {
   ClearWaterConfig.LavaConfig.class,
   ClearWaterConfig.PowderedSnowConfig.class
 })
+@ConfigInfo(
+  titleTranslation = "text.resourcefulconfig.clearwater.config.title",
+  descriptionTranslation = "text.resourcefulconfig.clearwater.config.description")
 public final class ClearWaterConfig {
     
-    @Category(value = "text.resourcefulconfig.clearwater.category.water")
+    @Category(value = "waterConfig")
+    @ConfigInfo(titleTranslation = "text.resourcefulconfig.clearwater.category.water")
     public static final class WaterConfig {
         @ConfigEntry(
           id = "enableWater",
@@ -58,6 +62,7 @@ public final class ClearWaterConfig {
     }
     
     @Category(value = "lavaConfig")
+    @ConfigInfo(titleTranslation = "text.resourcefulconfig.clearwater.category.lava")
     public static final class LavaConfig {
         @ConfigEntry(
           id = "enableLava",
@@ -95,6 +100,7 @@ public final class ClearWaterConfig {
     }
     
     @Category(value = "powderedSnowConfig")
+    @ConfigInfo(titleTranslation = "text.resourcefulconfig.clearwater.category.powderedSnow")
     public static final class PowderedSnowConfig {
         @ConfigEntry(
           id = "enablePowderedSnow",

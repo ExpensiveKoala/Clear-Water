@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[43,)"
+loaderVersion = "[2,)"
 license = "MIT"
 issueTrackerURL = "https://github.com/ExpensiveKoala/Clear-Water/issues"
 [[mods]]
@@ -17,7 +17,7 @@ See clearly under water!
 [[dependencies.clearwater]]
 modId = "neoforge"
 type = "required"
-versionRange = "[43,)"
+versionRange = "[20.4,)"
 ordering = "NONE"
 side = "BOTH"
 
