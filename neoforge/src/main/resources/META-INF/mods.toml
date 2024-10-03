@@ -19,18 +19,18 @@ modId = "neoforge"
 type = "required"
 versionRange = "[20.4,)"
 ordering = "NONE"
-side = "BOTH"
+side = "CLIENT"
 
 [[dependencies.clearwater]]
 modId = "resourcefulconfig"
 type = "required"
 versionRange = "[2.4.3,)"
 ordering = "NONE"
-side = "BOTH"
+side = "CLIENT"
 
 [[dependencies.clearwater]]
 modId = "minecraft"
 type = "required"
 versionRange = "[1.20,)"
 ordering = "NONE"
-side = "BOTH"
+side = "CLIENT"

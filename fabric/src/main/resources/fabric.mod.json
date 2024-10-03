@@ -17,10 +17,9 @@
   "icon": "icon.png",
   "environment": "*",
   "entrypoints": {
-    "main": [
-      "koala.clearwater.fabric.ClearWaterFabric"
-    ],
+    "main": [],
     "client": [
+      "koala.clearwater.fabric.ClearWaterFabric"
     ],
     "modmenu": [
       "koala.clearwater.fabric.ModMenuIntegration"
