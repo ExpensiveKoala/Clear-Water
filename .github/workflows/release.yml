@@ -45,7 +45,7 @@ jobs:
             resourceful-config(required){modrinth:M1953qlQ}{curseforge:714059}
 
       - name: Publish Fabric
-        id: publish_neoforge
+        id: publish_fabric
         uses: Kir-Antipov/mc-publish@v3.3
         with:
           modrinth-id: ${{ secrets.MODRINTH_PROJECT }}
