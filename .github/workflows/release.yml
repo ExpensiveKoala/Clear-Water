@@ -19,7 +19,7 @@ jobs:
 
       - name: Get properties
         id: properties
-        uses: christian-draeger/@1.1.1
+        uses: christian-draeger/read-properties@1.1.1
         with:
           path: "./gradle.properties"
           properties: "version minecraft_version"
