@@ -1,3 +1,6 @@
+## 1.21 - 3.0.0
+- Update to 1.21
+
 ## 1.20.4 - 2.3
 
 - Fix when people try to run this mod on server
