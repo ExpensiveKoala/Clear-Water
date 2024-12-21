@@ -20,7 +20,6 @@ public final class ClearWaterConfig {
     public static final class WaterConfig {
         @ConfigEntry(
           id = "enableWater",
-          type = EntryType.BOOLEAN,
           translation = "text.resourcefulconfig.clearwater.option.enableWater"
         )
         @Comment(value = "Enables modifications of fog under water", translation = "text.resourcefulconfig.clearwater.option.enableWater.tooltip")
@@ -28,7 +27,6 @@ public final class ClearWaterConfig {
     
         @ConfigEntry(
           id = "fogNearPlaneWater",
-          type = EntryType.FLOAT,
           translation = "text.resourcefulconfig.clearwater.option.fogNearPlaneWater"
         )
         @Comment(value = "Value for where fog starts. Vanilla is -8.0", translation = "text.resourcefulconfig.clearwater.option.fogNearPlaneWater.tooltip")
@@ -37,7 +35,6 @@ public final class ClearWaterConfig {
         
         @ConfigEntry(
           id = "fogFarPlaneWater",
-          type = EntryType.FLOAT,
           translation = "text.resourcefulconfig.clearwater.option.fogFarPlaneWater"
         )
         @Comment(value = "Value for where fog ends. Vanilla is 96.0", translation = "text.resourcefulconfig.clearwater.option.fogFarPlaneWater.tooltip")
@@ -46,15 +43,19 @@ public final class ClearWaterConfig {
     
         @ConfigEntry(
           id = "fadeInWater",
-          type = EntryType.BOOLEAN,
           translation = "text.resourcefulconfig.clearwater.option.fadeInWater"
         )
         @Comment(value = "When enabled, makes vision fade in like vanilla behavior", translation = "text.resourcefulconfig.clearwater.option.fadeInWater.tooltip")
         public static boolean fadeInWater = true;
         
         @ConfigEntry(
+          id = "closerFogBiomeTag",
+          translation = "text.resourcefulconfig.clearwater.option.closerFogBiomeTag"
+        )
+        public static boolean closerFogBiomeTag = true;
+        
+        @ConfigEntry(
           id = "fogShapeWater",
-          type = EntryType.ENUM,
           translation = "text.resourcefulconfig.clearwater.option.fogShapeWater"
         )
         @Comment(value = "The shape of the fog around the player", translation = "text.resourcefulconfig.clearwater.option.fogShapeWater.tooltip")
@@ -66,7 +67,6 @@ public final class ClearWaterConfig {
     public static final class LavaConfig {
         @ConfigEntry(
           id = "enableLava",
-          type = EntryType.BOOLEAN,
           translation = "text.resourcefulconfig.clearwater.option.enableLava"
         )
         @Comment(value = "Enables modifications of fog under lava", translation = "text.resourcefulconfig.clearwater.option.enableLava.tooltip")
@@ -74,7 +74,6 @@ public final class ClearWaterConfig {
     
         @ConfigEntry(
           id = "fogNearPlaneLava",
-          type = EntryType.FLOAT,
           translation = "text.resourcefulconfig.clearwater.option.fogNearPlaneLava"
         )
         @Comment(value = "Value for where fog starts. Vanilla is 0.25", translation = "text.resourcefulconfig.clearwater.option.fogNearPlaneLava.tooltip")
@@ -83,7 +82,6 @@ public final class ClearWaterConfig {
     
         @ConfigEntry(
           id = "fogFarPlaneLava",
-          type = EntryType.FLOAT,
           translation = "text.resourcefulconfig.clearwater.option.fogFarPlaneLava"
         )
         @Comment(value = "Value for where fog ends. Vanilla is 1.0", translation = "text.resourcefulconfig.clearwater.option.fogFarPlaneLava.tooltip")
@@ -92,7 +90,6 @@ public final class ClearWaterConfig {
     
         @ConfigEntry(
           id = "fogShapeLava",
-          type = EntryType.ENUM,
           translation = "text.resourcefulconfig.clearwater.option.fogShapeLava"
         )
         @Comment(value = "The shape of the fog around the player", translation = "text.resourcefulconfig.clearwater.option.fogShapeLava.tooltip")
@@ -104,7 +101,6 @@ public final class ClearWaterConfig {
     public static final class PowderedSnowConfig {
         @ConfigEntry(
           id = "enablePowderedSnow",
-          type = EntryType.BOOLEAN,
           translation = "text.resourcefulconfig.clearwater.option.enablePowderedSnow"
         )
         @Comment(value = "Enables modifications of fog under powdered snow", translation = "text.resourcefulconfig.clearwater.option.enablePowderedSnow.tooltip")
@@ -112,7 +108,6 @@ public final class ClearWaterConfig {
     
         @ConfigEntry(
           id = "fogNearPlaneSnow",
-          type = EntryType.FLOAT,
           translation = "text.resourcefulconfig.clearwater.option.fogNearPlaneSnow"
         )
         @Comment(value = "Value for where fog starts. Vanilla is 0.0", translation = "text.resourcefulconfig.clearwater.option.fogNearPlaneSnow.tooltip")
@@ -121,7 +116,6 @@ public final class ClearWaterConfig {
     
         @ConfigEntry(
           id = "fogFarPlaneSnow",
-          type = EntryType.FLOAT,
           translation = "text.resourcefulconfig.clearwater.option.fogFarPlaneSnow"
         )
         @Comment(value = "Value for where fog ends. Vanilla is 2.0", translation = "text.resourcefulconfig.clearwater.option.fogFarPlaneSnow.tooltip")
@@ -130,7 +124,6 @@ public final class ClearWaterConfig {
     
         @ConfigEntry(
           id = "fogShapeSnow",
-          type = EntryType.ENUM,
           translation = "text.resourcefulconfig.clearwater.option.fogShapeSnow"
         )
         @Comment(value = "The shape of the fog around the player", translation = "text.resourcefulconfig.clearwater.option.fogShapeSnow.tooltip")

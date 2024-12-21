@@ -6,6 +6,7 @@ import com.teamresourceful.resourcefulconfig.api.loader.Configurator;
 import com.teamresourceful.resourcefulconfig.common.config.Configurations;
 import net.minecraft.client.Camera;
 import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.material.FogType;
 
 import java.util.Arrays;
@@ -25,8 +26,12 @@ public class ClearWater {
             case WATER -> {
                 if (ClearWaterConfig.WaterConfig.enableWater) {
                     float waterVision = camera.getEntity() instanceof LocalPlayer player && ClearWaterConfig.WaterConfig.fadeInWater ? Math.max(0.25f, player.getWaterVision()) : 1.0f;
+                    float farPlane = Math.max(ClearWaterConfig.WaterConfig.fogNearPlaneWater, ClearWaterConfig.WaterConfig.fogFarPlaneWater * waterVision);
+                    if (camera.getEntity() instanceof LocalPlayer player && player.level().getBiome(player.blockPosition()).is(BiomeTags.HAS_CLOSER_WATER_FOG)) {
+                        farPlane *= 0.85F;
+                    }
                     fogStartConsumer.accept(ClearWaterConfig.WaterConfig.fogNearPlaneWater);
-                    fogEndConsumer.accept(ClearWaterConfig.WaterConfig.fogFarPlaneWater * waterVision);
+                    fogEndConsumer.accept(farPlane);
                     fogShapeConsumer.accept(ClearWaterConfig.WaterConfig.fogShapeWater);
                     yield true;
                 }

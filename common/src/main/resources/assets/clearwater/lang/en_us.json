@@ -12,6 +12,8 @@
   "text.resourcefulconfig.clearwater.option.fogFarPlaneWater.tooltip": "Value for where fog ends. Vanilla is 96.0",
   "text.resourcefulconfig.clearwater.option.fadeInWater":  "Fade-in water fog",
   "text.resourcefulconfig.clearwater.option.fadeInWater.tooltip": "When enabled, makes vision fade in like vanilla behavior",
+  "text.resourcefulconfig.clearwater.option.closerFogBiomeTag": "Respect HAS_CLOSER_FOG_WATER biome tag",
+  "text.resourcefulconfig.clearwater.option.closerFogBiomeTag.tooltip": "When enabled, reduces fog distance if player is in a biome in the HAS_CLOSER_FOG_WATER biome tag. This reduces fog distance by 15%.",
   "text.resourcefulconfig.clearwater.option.fogShapeWater":  "Fog shape (Water)",
   "text.resourcefulconfig.clearwater.option.fogShapeWater.tooltip": "The shape of the fog around the player",
   "text.resourcefulconfig.clearwater.option.enableLava":  "Enable lava fog control",
