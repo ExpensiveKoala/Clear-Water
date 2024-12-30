@@ -1,3 +1,6 @@
+## 1.21 - 3.0.1
+- Fix fabric version not loading for 1.21.1 and higher
+
 ## 1.21 - 3.0.0
 - Update to 1.21
 
